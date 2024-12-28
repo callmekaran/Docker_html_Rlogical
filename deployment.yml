@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: villa-frontend
+  labels:
+    app: villa-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: villa-frontend
+  template:
+    metadata:
+      labels:
+        app: villa-frontend
+    spec:
+      containers:
+      - name: villa-frontend-container
+        image: 390403863665.dkr.ecr.ap-south-1.amazonaws.com/docker-html
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000

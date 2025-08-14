@@ -9,7 +9,7 @@ env:
   ECR_REPOSITORY: docker_rlogical
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   deploy:

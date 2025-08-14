@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: villa-frontend-container
-        image: 491085423090.dkr.ecr.ap-south-1.amazonaws.com/docker_rlogical:20250814-1330
+        image: 491085423090.dkr.ecr.ap-south-1.amazonaws.com/docker_rlogical:2025-08-14_13-41
         imagePullPolicy: Always
         ports:
         - containerPort: 80

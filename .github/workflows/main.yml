@@ -49,3 +49,20 @@ jobs:
         docker tag $IMAGE_URI:$IMAGE_TAG $IMAGE_URI:latest
         docker push $IMAGE_URI:$IMAGE_TAG
         docker push $IMAGE_URI:latest
+
+    # Update K8s manifest
+    - name: Update K8s Manifests
+      run: |
+        sed -i "s|image: infosecsingh/demo-app:.*|image: infosecsingh/demo-app:${{ env.IMAGE_TAG }}|" deployement/deploy.yaml
+        cat deploy/deploy.yaml
+
+    # Commit the changes to GitHub
+    - name: Commit the changes
+      run: |
+        git config --global user.email "<karanravat60@gmail.com>"
+        git config --global user.name "Karan Ravat"
+        git add deployement/deploy.yaml
+        git commit -m "Update deploy.yaml with new image version - ${{ env.IMAGE_TAG }}"
+        git remote set-url origin https://github.com/callmekaran/Docker_html_Rlogical.git
+        git push origin main
+

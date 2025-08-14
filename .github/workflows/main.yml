@@ -53,7 +53,7 @@ jobs:
     # Update K8s manifest
     - name: Update K8s Manifests
       run: |
-        sed -i "s|image: 491085423090.dkr.ecr.ap-south-1.amazonaws.com/docker_rlogical:.*|image: 491085423090.dkr.ecr.ap-south-1.amazonaws.com/docker_rlogical:${{ env.IMAGE_TAG }}|" deployment/depoy.yml
+        sed -i "s|image: 491085423090.dkr.ecr.ap-south-1.amazonaws.com/docker_rlogical:.*|image: 491085423090.dkr.ecr.ap-south-1.amazonaws.com/docker_rlogical:${{ env.IMAGE_TAG }}|" deployment/deploy.yml
         cat deployment/deploy.yml
 
     # Commit the changes to GitHub

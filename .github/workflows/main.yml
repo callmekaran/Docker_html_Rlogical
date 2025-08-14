@@ -46,9 +46,7 @@ jobs:
         echo "Building Docker image with tag: $IMAGE_TAG"
         IMAGE_URI=$ECR_REGISTRY/$ECR_REPOSITORY
         docker build -t $IMAGE_URI:$IMAGE_TAG .
-        docker tag $IMAGE_URI:$IMAGE_TAG $IMAGE_URI:latest
         docker push $IMAGE_URI:$IMAGE_TAG
-        docker push $IMAGE_URI:latest
 
     # Update K8s manifest
     - name: Update K8s Manifests

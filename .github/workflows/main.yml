@@ -34,7 +34,7 @@ jobs:
     - name: Set timestamp for image tag
       id: timestamp
       run: |
-        echo "IMAGE_TAG=$(date +'%F=%H:%M')" >> $GITHUB_ENV
+        echo "IMAGE_TAG=$(date +'%F=%H_%M')" >> $GITHUB_ENV
 
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
